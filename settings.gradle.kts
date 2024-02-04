@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "TokenBucket"
 include(":shared")
 include(":token-bucket-ktor")
+include(":convention-plugins")

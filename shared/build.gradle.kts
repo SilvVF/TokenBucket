@@ -5,10 +5,24 @@ plugins {
     id("maven-publish")
 }
 
+group = "io.silv.tokenbucket"
+version = "1.0.0"
+
+publishing {
+    repositories {
+        maven {
+            setUrl("https://maven.pkg.github.com/SilvVF/TokenBucket")
+        }
+    }
+}
+
 kotlin {
     androidTarget {
-        publishLibraryVariants("release", "debug")
         compilations.all {
+
+            publishLibraryVariants("release", "debug")
+            publishLibraryVariantsGroupedByFlavor = true
+
             kotlinOptions {
                 jvmTarget = "1.8"
             }
@@ -41,17 +55,11 @@ kotlin {
 }
 
 android {
+
     namespace = "io.silv.tokenbucket"
     compileSdk = 34
+
     defaultConfig {
         minSdk = 24
-    }
-}
-
-publishing {
-    repositories {
-        maven {
-            //...
-        }
     }
 }

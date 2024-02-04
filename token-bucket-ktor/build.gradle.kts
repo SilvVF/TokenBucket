@@ -2,11 +2,29 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    id("maven-publish")
 }
+
+
+group = "io.silv.tokenbucket"
+version = "1.0.0"
+
+publishing {
+    repositories {
+        maven {
+            setUrl("https://maven.pkg.github.com/SilvVF/TokenBucket")
+        }
+    }
+}
+
 
 kotlin {
     androidTarget {
         compilations.all {
+
+            publishLibraryVariants("release", "debug")
+            publishLibraryVariantsGroupedByFlavor = true
+
             kotlinOptions {
                 jvmTarget = "1.8"
             }
