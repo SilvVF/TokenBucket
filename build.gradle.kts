@@ -4,4 +4,6 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform).apply(false)
     alias(libs.plugins.kotlinCocoapods).apply(false)
     alias(libs.plugins.org.jetbrains.kotlin.jvm) apply false
+
+    `maven-publish`
 }
